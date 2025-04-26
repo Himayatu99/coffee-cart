@@ -7,9 +7,9 @@ const expectedUrl = Cypress.config('baseUrl');
 
 describe('Coffee cart app shopping cart functionality', () => {
   beforeEach(() => {
-    //Base url 
-    cy.visit('/')
-    //Verify the url
+    // Base url 
+    cy.visit('https://coffee-cart.app/')
+    // Verify the url
     cy.url().should('eq', expectedUrl);
   });
   it('Home page should be different products', () => {
@@ -70,6 +70,7 @@ describe('Coffee cart app shopping cart functionality', () => {
     cy.get(homepageselector.cart).should('contain', 'cart (1)')
     // Verify that the total price is updated to $8.00
     cy.get(homepageselector.total).should('contain', 'Total: $8.00')
+
 
     //**** For Mocha click , verify text end ****
   })
@@ -228,7 +229,6 @@ describe('Coffee cart app shopping cart functionality', () => {
       .and('have.attr', 'type', 'submit')
       .and('contain', 'Submit')
       .and('be.visible');
-
 
   })
 })

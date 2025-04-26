@@ -1,10 +1,16 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     baseUrl: 'https://coffee-cart.app/',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // node events
     },
-  },
+    experimentalSessionAndOrigin: true,
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    env: {
+      NO_PROXY: "localhost,127.0.0.1",
+    }
+  }
 });

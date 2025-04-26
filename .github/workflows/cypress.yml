@@ -1,0 +1,34 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches: https://github.com/Himayatu99/coffee-cart.git
+  pull_request:
+    branches: https://github.com/Himayatu99/coffee-cart.git
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Start Application
+      run: npm run start & 
+      # The & runs it in background
+
+    - name: Wait for Application
+      run: npx wait-on http://localhost:3000
+      # wait-on is used to make sure app is ready
+
+    - name: Run Cypress Tests
+      run: npx cypress run
