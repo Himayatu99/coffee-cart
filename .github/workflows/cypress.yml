@@ -24,13 +24,13 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Start Application
-      run: npm run start &
-      # The & runs it in background
+    # - name: Start Application
+    #   run: npm run start &
+    #   # The & runs it in background
 
-    - name: Wait for Application
-      run: npx wait-on http://localhost:3000
-      # wait-on is used to make sure app is ready
+    # - name: Wait for Application
+    #   run: npx wait-on http://localhost:3000
+    #   # wait-on is used to make sure app is ready
 
     - name: Run Cypress Tests
       run: npx cypress run
